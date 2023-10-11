@@ -37,6 +37,7 @@ func loadApiConfig(filename string)(apiConfigData,error){
 	return c , nil
 }
 func hello(w http.ResponseWriter, r *http.Request){
+	enableCors(&w)
 	w.Write([]byte("Hello from rghdrizzle \n"))
 }
 
@@ -60,8 +61,9 @@ func query(city string) ( weatherData,error){
 }
 
 func main(){
-	http.HandleFunc("/hello",hello)
+	http.HandleFunc("/",hello)
 	http.HandleFunc("/weather/",func(w  http.ResponseWriter , r *http.Request){
+		enableCors(&w)
 		city:= strings.SplitN(r.URL.Path,"/",3)[2]
 		data,err:=query(city)
 		if err!=nil{
@@ -74,3 +76,6 @@ func main(){
 
 	http.ListenAndServe(":8080",nil)
 }
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	}
