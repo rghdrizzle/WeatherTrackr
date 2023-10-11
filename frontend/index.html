@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTrackr</title>
+</head>
+<script>
+    function getWeather(){
+        let city = document.getElementById("city").value;
+        document.getElementById("res").innerHTML= city;
+        fetch('http://localhost:8080/weather/'+city, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+            },
+        }).then(response => response.json())
+          .then(json => console.log(JSON.stringify(json)))
+
+    }
+
+</script>
+<body>
+    <h1>Search Weather for a city</h1>
+        <input type="text" name="city" id="city" placeholder="Enter the name of Your city">
+        <input type="submit" value="Search" onclick= getWeather() >
+    <p id="res"></p>
+</body>
+</html>
