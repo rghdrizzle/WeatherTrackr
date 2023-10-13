@@ -6,16 +6,18 @@
     <title>WeatherTrackr</title>
 </head>
 <script>
-    function getWeather(){
+    async function getWeather(){
         let city = document.getElementById("city").value;
         document.getElementById("res").innerHTML= city;
-        fetch('http://localhost:8080/weather/'+city, {
+        const response = await fetch('http://localhost:8080/weather/'+city, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
             },
-        }).then(response => response.json())
-          .then(json => console.log(JSON.stringify(json)))
+        });
+        const json = await response.json(); 
+        const ans = json['main']['temp']
+        res.innerHTML =`<h3>Weather: ${ans} Kelvin</h3>`
 
     }
 
