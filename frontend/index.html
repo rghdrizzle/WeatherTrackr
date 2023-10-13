@@ -6,7 +6,7 @@
     <title>WeatherTrackr</title>
 </head>
 <script>
-    async function getWeather(){
+   function getWeather(){
         let city = document.getElementById("city").value;
         document.getElementById("res").innerHTML= city;
         const response = await fetch('http://localhost:8080/weather/'+city, {
