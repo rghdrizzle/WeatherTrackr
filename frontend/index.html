@@ -6,7 +6,7 @@
     <title>WeatherTrackr</title>
 </head>
 <script>
-   async function getWeather(){
+    async function getWeather(){
         let city = document.getElementById("city").value;
         document.getElementById("res").innerHTML= city;
         const response = await fetch('http://localhost:8080/weather/'+city, {
@@ -16,8 +16,14 @@
             },
         });
         const json = await response.json(); 
-        const ans = json['main']['temp']
-        res.innerHTML =`<h3>Weather: ${ans} Kelvin</h3>`
+        const temp = json['main']['temp']
+        const weather = json['Weather'][0]['main']
+        res.innerHTML =`<h3>Temperature: ${temp} Kelvin </h3>`
+        let res1 = document.getElementById("res1");
+        res1.innerHTML =`Weather : ${weather}`;
+        if(weather=="Rain"){
+            console.log("Get Inside , Hurry");
+        }
 
     }
 
@@ -27,5 +33,6 @@
         <input type="text" name="city" id="city" placeholder="Enter the name of Your city">
         <input type="submit" value="Search" onclick= getWeather() >
     <p id="res"></p>
+    <h3 id="res1"></h3>
 </body>
 </html>
