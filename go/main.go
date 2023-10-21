@@ -18,6 +18,11 @@ type weatherData struct{
 	Main struct{
 		Kelvin float64 `json:"temp"`
 	}`json:"main"`
+	Weather[] struct {
+		Main string `json:"main"`
+		Description string `json:"description"`
+
+	}`jason:"weather"`
 }
 
 
