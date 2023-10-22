@@ -21,18 +21,23 @@
         res.innerHTML =`<h3>Temperature: ${temp} Kelvin </h3>`
         let res1 = document.getElementById("res1");
         res1.innerHTML =`Weather : ${weather}`;
+        const funcapi ="";
         if(weather=="Rain"){
-            console.log("Get Inside , Hurry");
+            fetch(funcapi);
         }
 
+        
+
     }
+    
 
 </script>
 <body>
     <h1>Search Weather for a city</h1>
         <input type="text" name="city" id="city" placeholder="Enter the name of Your city">
-        <input type="submit" value="Search" onclick= getWeather() >
+        <input type="submit" value="Search" onclick= getWeather()>
     <p id="res"></p>
     <h3 id="res1"></h3>
+    <p>An Alert will be sent to you if it meets the threshold (Rain)</p>
 </body>
 </html>
