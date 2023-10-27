@@ -6,3 +6,4 @@ A weather tracker website to track weeathers of you and also allows alerts you w
 - Azure SDK python: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/document_management.py#L86-L93
   https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-python?tabs=azure-portal%2Cconnection-string%2Cwindows%2Csign-in-azure-cli%2Csync
   https://stackoverflow.com/questions/69373097/confusing-partitioning-key-of-cosmosdb
+- To recieve data from js: https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-python?tabs=asgi%2Capplication-level&pivots=python-mode-decorators
