@@ -7,16 +7,18 @@
 </head>
 <script>
     function sendsms(){
-        let city = document.getElementById("city").value;
-        let data = {key: city};
+        const city = document.getElementById("city").value;
+        let data = city
         console.log(data)
-        fetch('', {
+        fetch(`http://localhost:7071/api/http_trigger?data=${city}`, {
                 method: 'POST',
-                body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json'
                 }
-                })
+                }).then(response=>{
+        return response.json();
+    })
+        console.log("stored successfully");
     }
 
 </script>
