@@ -2,6 +2,7 @@ import azure.functions as func
 import logging
 import azure.cosmos.exceptions as exceptions
 from azure.cosmos import CosmosClient, PartitionKey
+import os
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
@@ -10,11 +11,11 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     city = req.params.get('data')
-    ENDPOINT = ""
-    KEY=""
+    Endpoint = os.getenv("ENDPOINT")
+    key=os.getenv("KEY")
     DATABASE_NAME="Cities"
     key_path = PartitionKey(path="/partitionkey")
-    client = CosmosClient(url=ENDPOINT, credential=KEY)
+    client = CosmosClient(url=Endpoint, credential=key)
     database = client.create_database_if_not_exists(id=DATABASE_NAME)
     print("Database\t", database.id)
     container = database.create_container_if_not_exists(
