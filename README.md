@@ -7,3 +7,4 @@ A weather tracker website to track weeathers of you and also allows alerts you w
   https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-python?tabs=azure-portal%2Cconnection-string%2Cwindows%2Csign-in-azure-cli%2Csync
   https://stackoverflow.com/questions/69373097/confusing-partitioning-key-of-cosmosdb
 - To recieve data from js: https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-python?tabs=asgi%2Capplication-level&pivots=python-mode-decorators
+- To fix ECONNREFUSED error: https://stackoverflow.com/questions/71532944/unable-to-debug-python-azure-function-in-vs-code-ide-getting-connect-econnrefus
