@@ -30,8 +30,10 @@ def SendAlert(myTimer: func.TimerRequest) -> None:
 
 
     city = response.get('city')
-    response=requests.get("localhost:8080/weather/"+city)
-    weather = response.text['weather'][0]['main']
+    response=requests.get("http://127.0.0.1:8080/weather/"+city)
+    res = response.json()
+    weather = res['Weather'][0]['main']
+    logging.info(weather)
     
     if myTimer.past_due:
         logging.info('The timer is past due!')
@@ -47,8 +49,8 @@ def SendAlert(myTimer: func.TimerRequest) -> None:
                     "to": [{"address": "rockgameplayhakeem@gmail.com" }],
                 },
                 "content": {
-                    "subject": "Test Email",
-                    "plainText": "hello "+name,
+                    "subject": "WEATHER ALERT",
+                    "plainText": "It Is Gonna Rain or Is Raining in"+city +"\n"+"Take care :)",
                 }
             }
 
