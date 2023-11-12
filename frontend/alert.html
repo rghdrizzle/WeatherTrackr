@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe</title>
 </head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-image: url(https://media.tenor.com/vF6R4JjcGzsAAAAC/weather-sunnyday.gif);
+    background-size: cover;
+}
+.header{
+    background-color: rgb(95, 169, 233);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+
+}
+.search{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(121, 252, 143);
+    
+    margin-left: 550px;
+    margin-right: 550px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: 2px solid;
+    align-items: center;
+
+}
+.searchbox{
+    display: flex;
+    margin-top: auto;
+   
+
+}
+.head{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+#button{
+    color: rgb(233, 232, 233);
+    background-color: rgb(86, 143, 233);
+    border-color: black;
+}
+.result{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(121, 169, 252);
+    margin-left: 550px;
+    margin-right: 550px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: 2px solid;
+    align-items: center;
+
+}
+
+</style>
 <script>
     function sendsms(){
         const city = document.getElementById("city").value;
@@ -23,8 +83,16 @@
 
 </script>
 <body>
-    <h1>Personal Alert</h1>
-    <input type="text" name="city" id="city" placeholder="Enter the name of the city">
-    <input type="submit" value="Submit" onclick= sendsms()>
+    <div class="header">
+        <h1 class="title">WeatherTrackr</h1>
+    </div>
+    <h1 class="head">Personal Alert</h1>
+    <div class="search">
+        <div class="searchbox">
+            <input type="text" name="city" id="city" placeholder="Enter the name of Your city"><br>
+
+            <input type="submit" id="button" value="Submit" onclick= sendsms()>
+        </div>
+    </div>
 </body>
 </html>

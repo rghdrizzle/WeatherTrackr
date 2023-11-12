@@ -5,11 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherTrackr</title>
 </head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-image: url(https://media.tenor.com/vF6R4JjcGzsAAAAC/weather-sunnyday.gif);
+    background-size: cover;
+}
+.header{
+    background-color: rgb(95, 169, 233);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+
+}
+.search{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(121, 252, 143);
+    
+    margin-left: 550px;
+    margin-right: 550px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: 2px solid;
+    align-items: center;
+
+}
+.searchbox{
+    display: flex;
+    margin-top: auto;
+   
+
+}
+.head{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+#button{
+    color: rgb(233, 232, 233);
+    background-color: rgb(86, 143, 233);
+    border-color: black;
+}
+.result{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(121, 169, 252);
+    margin-left: 550px;
+    margin-right: 550px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: 2px solid;
+    align-items: center;
+
+}
+
+
+
+
+</style>
 <script>
+    
     async function getWeather(){
         let city = document.getElementById("city").value;
         document.getElementById("res").innerHTML= city;
-        const response = await fetch('http://localhost:8080/weather/'+city, {
+        const response = await fetch('https://weathertrakrprod.jollygrass-cfb56ce6.eastus.azurecontainerapps.io/weather/'+city, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -21,10 +85,6 @@
         res.innerHTML =`<h3>Temperature: ${temp} Kelvin </h3>`
         let res1 = document.getElementById("res1");
         res1.innerHTML =`Weather : ${weather}`;
-        const funcapi ="";
-        if(weather=="Rain"){
-            fetch(funcapi);
-        }
 
         
 
@@ -33,11 +93,21 @@
 
 </script>
 <body>
-    <h1>Search Weather for a city</h1>
-        <input type="text" name="city" id="city" placeholder="Enter the name of Your city">
-        <input type="submit" value="Search" onclick= getWeather()>
-    <p id="res"></p>
-    <h3 id="res1"></h3>
-    <p>An Alert will be sent to you if it meets the threshold (Rain)</p>
+    <div class="header">
+        <h1 class="title">WeatherTrackr</h1>
+    </div>
+    <h2 class ="head">Search Weather for a city</h2><br>
+    <div class="search">
+        <div class="searchbox">
+            <input type="text" name="city" id="city" placeholder="Enter the name of Your city"><br>
+
+            <input type="submit" id="button" value="Search" onclick= getWeather()>
+        </div>
+    </div>
+    <div class="result">
+        <p id="res"></p><br>
+        <h3 id="res1"></h3>
+    </div>
+    <center><a href="alert.html" style="background-color: brown; color: white; padding: 2px 0;">Subscribe for personal Weather Alert</a></center>
 </body>
 </html>
