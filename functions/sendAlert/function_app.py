@@ -8,7 +8,7 @@ import requests
 
 app = func.FunctionApp()
 
-@app.schedule(schedule="*/15 * * * * *", arg_name="myTimer", run_on_startup=True,
+@app.schedule(schedule="0 0 8 * * *", arg_name="myTimer", run_on_startup=True,
               use_monitor=False) 
 def SendAlert(myTimer: func.TimerRequest) -> None:
     Endpoint = os.getenv("ENDPOINT")
@@ -30,7 +30,7 @@ def SendAlert(myTimer: func.TimerRequest) -> None:
 
 
     city = response.get('city')
-    response=requests.get("http://127.0.0.1:8080/weather/"+city)
+    response=requests.get("https://weathertrakrprod.jollygrass-cfb56ce6.eastus.azurecontainerapps.io/weather/"+city)
     res = response.json()
     weather = res['Weather'][0]['main']
     logging.info(weather)
