@@ -4,6 +4,16 @@ A weather tracker website to track weeathers of you and also allows alerts you w
 ## Architecture
 <img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/arch.png">
 
+## Tools used
+- Azure Function
+- Azure Communication Service (Email)
+- Azure CosmosDB
+- Python and Golang for backend
+- HTML and js for frontend
+- Azure Web Apps
+- Azure Container Apps and Registry
+- Azure Container Instance
+
 ### Links used when Faced a problem or simply to refer the documents:
 - CORs error : https://www.stackhawk.com/blog/golang-cors-guide-what-it-is-and-how-to-enable-it/ https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors
 - Azure SDK python: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/document_management.py#L86-L93
