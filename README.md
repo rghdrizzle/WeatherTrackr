@@ -1,5 +1,5 @@
 # WeatherTrackr
-A weather tracker website to track weeathers of you and also allows alerts you whenever a certain weather threshold is met using serverless function
+A weather tracker website to track weathers of your cityand also allows alerts you whenever a certain weather threshold is met using serverless function
 
 ## Architecture
 <img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/arch.png">
