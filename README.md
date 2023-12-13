@@ -26,7 +26,31 @@ This is how the frontend looks after deployment:
 The backend consists of a weather fetcher , alert system and a function to store the city name to the database. The function which fetches the weather for a particulat city is implemeneted using Golang. It is then deployed to Azure containers after building the docker image for the application. I deployed it to Azure container Instance as a dev/testing enviornment and Container Apps as the production environment. The web app fetches the weather data from the application in the backend. Next the function for storing the city's name. This function gets the value of the string entered by the user and then stores that string to Cosmos DB by using the Azure sdk. Next is the main part of this whole project , the alert system. I used Azure functions to respond to Time triggers (every 24 hrs at 8:00 am). The function fetches the city name from the Cosmos Db and then calls the backend application running in Azure container apps to get the weather data and if the it is raining it will send a message to my email. For the email communication I used Azure Communication service. So basiscally everytime it rains this function will send me an email using the communication service from Azure and tada I get notified. All the required images are stored in Azure container registry.
 
 ## Outputs
+### Backend running in production:
 <img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(198).png">
+
+### Backend running in dev/test environment 
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(194).png">
+
+#### Frontend ( displaying weather for requested city )
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(202).png">
+
+### Subsribing a city for weather alert
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(203).png">
+
+### Email(alert) sent once its raining in the city (registered city)
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(195).png">
+
+### Images of the services deployed in Azure
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(196).png">
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(197).png">
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(199).png">
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(204).png">
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(205).png">
+<img src="https://github.com/rghdrizzle/WeatherTrackr/blob/main/Screenshot%20(206).png>
+
+
+## Thank you for reading
 
 
 ### Links used when Faced a problem or simply to refer the documents:
